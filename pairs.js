@@ -12,10 +12,10 @@
  *       returns [['Mishmish', 'Fawas'], ['Asis', 'Hussein'], ['Hamsa']]
  *
  * - It returns an empty array if it gets passed an empty array:
- *       pairs([]) returns []
+ *       pairs([]) returns [] ((done))
  *
  * - It returns an empty array if it gets passed nothing:
- *       pairs() returns []
+ *       pairs() returns [] ((done))
  ****************************************************************/
 
 /**********************************************
@@ -38,10 +38,60 @@ Array.prototype.getRandom = function () {
 
 function pairs(names) {
   // Your code goes here
+  let emptyarr = [];
+  //no parameters
+  if (names === undefined) {
+    return emptyarr;
+  }
+  //empty array
+  else if (names.length === 0) {
+    return emptyarr;
+  }
+  let len = names.length;
+  //even array
+  if (len % 2 === 0) {
+    while (names.length !== 0) {
+      let smallarray = [];
+      while (smallarray.length < 2) {
+        let random = names.getRandom();
+        smallarray.push(random);
+      }
+      emptyarr.push(smallarray);
+    }
+    return emptyarr;
+  } //odd array
+  else {
+    while (names.length !== 0) {
+      let smallarray = [];
+      if (names.length === 1) {
+        let smallarray = names;
+        emptyarr.push(smallarray);
+        return emptyarr;
+      } else {
+        while (smallarray.length < 2) {
+          let random = names.getRandom();
+          smallarray.push(random);
+        }
+      }
+
+      emptyarr.push(smallarray);
+    }
+  }
 }
 
 module.exports = pairs;
 
+console.log(
+  typeof pairs([
+    "Asis",
+    "Hamsa",
+    "Fawas",
+    "Mishmish",
+    "Hussein",
+    "Lailz",
+    "Mr Potato",
+  ])
+);
 console.log(
   pairs(["Asis", "Hamsa", "Fawas", "Mishmish", "Hussein", "Lailz", "Mr Potato"])
 );
