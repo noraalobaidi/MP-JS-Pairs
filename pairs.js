@@ -40,10 +40,12 @@ function pairs(names) {
   // Your code goes here
   let emptyarr = [];
   //no parameters
+  // undefind , null = ! names << try this
+  // we can put initial value for names in function name line 39 (pairs(names=[]))
   if (names === undefined) {
     return emptyarr;
   }
-  //empty array
+  //empty array //names===[] >> empty array // return [] << returns empty array
   else if (names.length === 0) {
     return emptyarr;
   }
@@ -59,6 +61,22 @@ function pairs(names) {
       emptyarr.push(smallarray);
     }
     return emptyarr;
+
+    /*
+    const result=[];
+    while (names.length>1)
+    {
+      const firstName=names.getRandom();
+      const SecondName=names.getRandom();
+      const pair=[firstName,SecondName];
+      result.push(pair);
+    }
+    if (names.length===1)
+    {
+      result.push(names);
+    }
+    return result;
+    */
   } //odd array
   else {
     while (names.length !== 0) {
